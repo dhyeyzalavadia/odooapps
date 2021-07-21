@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="adult_action" model="ir.actions.act_window">
+        <field name="name">Adult</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('age', '&gt;=', 18)]</field>
+<!--
+        <field name="context">{'search_default_gender':1,'search_default_patient_name':1,'search_default_resposible':1}</field>
+-->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new patient details!
+            </p>
+        </field>
+    </record>
+    <record id="male_action" model="ir.actions.act_window">
+        <field name="name">Male</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('gender', '=', 'male')]</field>
+        <field name="context">{'default_gender':'male'}</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new patient details!
+            </p>
+        </field>
+    </record>
+    <record id="female_action" model="ir.actions.act_window">
+        <field name="name">Female</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('gender', '=', 'female')]</field>
+        <field name="context">{'default_gender':'female'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new patient details!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_adult_patient"
+              name="Adults"
+              parent="menu_patient_root"
+              action="adult_action"
+              sequence="10"/>
+    <menuitem id="menu_male_patient"
+              name="Male"
+              parent="menu_patient_root"
+              action="male_action"
+              sequence="10"/>
+    <menuitem id="menu_female_patient"
+              name="Female"
+              parent="menu_patient_root"
+              action="female_action"
+              sequence="10"/>
+</odoo>
