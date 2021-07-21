@@ -1,0 +1,2 @@
+# odooapps
+hospital management software
